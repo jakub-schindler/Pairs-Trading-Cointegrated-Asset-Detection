@@ -1,0 +1,17 @@
+tickers = [
+	'PLS.AX',
+	'ALB',
+	'SQM',
+	'LTR.AX',
+	'MP',
+	'600111.SS',
+	'LYSCF',
+	'600549.SS'
+]
+'''
+tickers = [
+	'PLS.AX',
+	'ALB',
+	'SQM',
+	'LTR.AX'
+]'''
