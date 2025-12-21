@@ -8,4 +8,4 @@ The program uses data downloaded from Yahoo Finance by using yfinance library. I
 At first the pairs are fitlered, by only passing those that have a correlation coefficient larger than a certain threshold (by default the threshold is 0.8). Next one of the assets is regressed on the other one, giving us a hedge ratio and spread. 
 
 The program performs and Augmented-Dickey-Fueller test with a constant and no trend on the spread. It's my own implementation of ADF. The critical value of ADF is caluclated as such:
-$ADF_{crit} = -2.86 - 2.89/N - 4.234 / N**2 - 40.04 / N**3$
+$`ADF_{crit} = -2.86 - 2.89/N - 4.234 / N**2 - 40.04 / N**3`$
