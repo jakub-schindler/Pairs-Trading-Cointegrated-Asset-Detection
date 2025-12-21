@@ -23,6 +23,14 @@ All identified cointegrated pairs are saved to CSV file.
 
 Clone the repository and install the required dependencies:
 
+git clone https://github.com/jakub-schindler/Pairs-Trading-Cointegrated-Asset-Detection.git
+cd Pairs-Trading-Cointegrated-Asset-Detection
+pip install -e .
+
+Now, prepare an input CSV file. It should be a single column named "tickers" with a ticker name in each row. 
+
+The program can be run directly via cli.py
+
 
 
 
