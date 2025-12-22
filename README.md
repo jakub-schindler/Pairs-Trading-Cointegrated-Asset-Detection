@@ -71,7 +71,7 @@ find-pairs --input example_tickers.csv --output outcome_file.csv --corr_threshol
 | --corr_threshold | Minimum Pearson correlation coefficient threshold  | 0.8 |
 | --start_date | Start date (YYYY-MM-DD) | one year before end_date |
 | --end_date | End date (YYYY-MM-DD) | today |
-| --interval | Time interval between data points. Available values: {1m,2m,5m,15m,30m,60m,90m,1h,1d,5d,1wk,1mo,3mo} | 1d |
+| --interval | Time interval between data points. Available values: {1m,2m,5m,15m,30m,60m,90m,1h,1d,5d,1wk,1mo,3mo} but it is *heavily recommended* to use only 1d, 1wk and 1mo since those are the most commonly supported intervals by all types of assets | 1d |
 
 To check available options use:
 find-pairs --help
