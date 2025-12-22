@@ -9,7 +9,7 @@ Since the downloaded data may contain missing values, the program counts the num
 
 In the first filtering step, only asset pairs with a Pearson correlation coefficient greater than a given threshold (default: 0.8) are considered. Next, one asset is linearly regressed on the other, yielding the hedge ratio and the spread.
 
-The program then performs an Augmented Dickey–Fuller (ADF) test on the spread, including a constant term but no trend. To select the appropriate lag order, the ADF test is performed for lag orders from 1 up to a maximum value (default: 4), and the specification that minimizes the Akaike Information Criterion (AIC) is chosen.
+The program then performs an Augmented Dickey–Fuller (ADF) test on the spread, including a constant term but no trend. To select the appropriate lag order, the ADF test is performed for lag orders from 1 up to 4, and the specification that minimizes the Akaike Information Criterion (AIC) is chosen.
 
 The critical value for the ADF test is computed using the finite-sample approximation
 
