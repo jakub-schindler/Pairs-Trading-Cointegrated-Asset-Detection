@@ -3,12 +3,21 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pairs-trading"
+name = "pairs-finder"
 version = "0.1.0"
-description = "Pairs trading analysis tools"
+description = "CLI tool for finding cointegrated asset pairs"
 requires-python = ">=3.10"
 dependencies = [
     "pandas",
     "numpy",
     "yfinance",
 ]
+
+[project.scripts]
+find-pairs = "pairs_finder.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
