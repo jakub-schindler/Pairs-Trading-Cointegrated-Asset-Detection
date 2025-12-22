@@ -83,11 +83,11 @@ def find_pairs(tickers, critical_corrcoef = 0.8, start_date: Optional[date] = No
 
 		if ADF_stats[i] <= ADF_crit_values(len(spreads[i])):
 			flag = ''
-			if tickers[crit_indices[i][0]] not in flagged_tickers:
+			if tickers[crit_indices[i][0]] in flagged_tickers:
 				flag += str(tickers[crit_indices[i][0]]) + ' has more than 5% of their its data missing'
-				if tickers[crit_indices[i][1]] not in flagged_tickers:
+				if tickers[crit_indices[i][1]] in flagged_tickers:
 					flag += ' ' + str(tickers[crit_indices[i][1]]) + ' has more than 5% of their its data missing'
-			elif tickers[crit_indices[i][1]] not in flagged_tickers:
+			elif tickers[crit_indices[i][1]] in flagged_tickers:
 				flag += str(tickers[crit_indices[i][1]]) + ' has more than 5% of their its data missing'
 			if len(flag) == 0:
 				flag = 'None'
@@ -96,6 +96,7 @@ def find_pairs(tickers, critical_corrcoef = 0.8, start_date: Optional[date] = No
 	df_found_pairs = pd.DataFrame(found_pairs, columns = ['Ticker1', 'Ticker2', 'HedgeRatio', 'StartDate', 'EndDate', 'Interval', 'Flags'])
 
 	return df_found_pairs
+
 
 
 
