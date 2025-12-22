@@ -21,15 +21,42 @@ All identified cointegrated pairs are saved to CSV file.
 
 # How to use:
 
+Prepare an input CSV file. It should be a single column named "tickers" with a ticker name in each row. You can use an example file "tickers_example.csv". 
+
 Clone the repository and install the required dependencies:
 
-git clone https://github.com/jakub-schindler/Pairs-Trading-Cointegrated-Asset-Detection.git
-cd Pairs-Trading-Cointegrated-Asset-Detection
-pip install -e .
+git clone https://github.com/jakub-schindler/Pairs-Trading-Cointegrated-Asset-Detection.git \
+cd Pairs-Trading-Cointegrated-Asset-Detection \
+pip install -e . 
 
-Now, prepare an input CSV file. It should be a single column named "tickers" with a ticker name in each row. 
+Basic usage:
 
-The program can be run directly via cli.py
+find-pairs --input path_to_tickers.csv --output path_to_outcome_file
+
+This will:
+
+-download historical price data from Yahoo Finance, \
+-linearly interpolate missing values, \
+-flag assets with more than 5% missing data, \
+-filter asset pairs by Pearson correlation, \
+-estimate hedge ratios using OLS regression, \
+-perform an Augmented Dickey-Fuller test on the spread, \
+-save all detected cointegrated pairs to the output CSV file.
+
+Command line arguments:
+
+| Argument  | Description | Default | 
+| ------------- | ------------- | ------------- |
+| --input | Path to the input csv file | required |
+| --output | Path to the output csv file. If the file doesn't exist it will be created automatically | required |
+| --corr_threshold | Minimum Pearson correlation coefficient threshold  | 0.8 |
+| --start_date | Start date (YYYY-MM-DD) | one year before end_date |
+| --end_date | End date (YYYY-MM-DD) | today |
+| --interval | Time interval between data points. Available values: {1m,2m,5m,15m,30m,60m,90m,1h,1d,5d,1wk,1mo,3mo} | 1d |
+
+To check available options use:
+find-pairs --help
+
 
 
 
