@@ -21,17 +21,24 @@ All identified cointegrated pairs are saved to CSV file.
 
 # How to use:
 
-Prepare an input CSV file. It should be a single column named "tickers" with a ticker name in each row. You can use an example file "tickers_example.csv". 
-
-Clone the repository and install the required dependencies:
+## Installation using virtualenv (recommended)
 
 git clone https://github.com/jakub-schindler/Pairs-Trading-Cointegrated-Asset-Detection.git \
-cd Pairs-Trading-Cointegrated-Asset-Detection \
-pip install -e . 
+cd Pairs-Trading-Cointegrated-Asset-Detection 
 
-Basic usage:
+python -m venv .venv \
+source .venv/bin/activate  # Linux / macOS \
+.venv\Scripts\activate     # Windows
 
-find-pairs --input path_to_tickers.csv --output path_to_outcome_file
+pip install -e .
+
+## Basic usage:
+
+Prepare an input CSV file. It should be a single column named "tickers" with a ticker name in each row. You can use an example file "tickers_example.csv". 
+
+The simplest way to run it is:
+
+find-pairs --input path_to_tickers.csv --output outcome_file.csv
 
 This will:
 
@@ -41,9 +48,21 @@ This will:
 -filter asset pairs by Pearson correlation, \
 -estimate hedge ratios using OLS regression, \
 -perform an Augmented Dickey-Fuller test on the spread, \
--save all detected cointegrated pairs to the output CSV file.
+-save all detected cointegrated pairs to the output CSV file. (if not existing, then it will be created automatically)
 
-Command line arguments:
+## Examples:
+
+You can use the example_tickers.csv file:
+
+find-pairs --input example_tickers.csv --output outcome_file.csv
+
+This will create a file named outcome_file.csv or append if it already exists.
+
+Full usage:
+
+find-pairs --input example_tickers.csv --output outcome_file.csv --corr_threshold 0.5 --start_date 2022-10-05 --end_date 2024-05-22 --interval 5d
+
+## Command line arguments:
 
 | Argument  | Description | Default | 
 | ------------- | ------------- | ------------- |
